@@ -5,7 +5,7 @@ import { ResultsPanel } from './components/ResultsPanel';
 import { UpgradeCallout } from './components/UpgradeCallout';
 import { fetchAndParse } from './services/fetchPage';
 import { analyseAll } from './services/analyser';
-import type { SectionResult } from './types';
+import type { ParsedPage, SectionResult } from './types';
 
 function App() {
   const [loading, setLoading] = useState(false);
@@ -13,6 +13,15 @@ function App() {
   const [sections, setSections] = useState<SectionResult[] | null>(null);
   const [checkedUrl, setCheckedUrl] = useState('');
   const [pageTitle, setPageTitle] = useState<string | null>(null);
+  const [pageInfo, setPageInfo] = useState<Pick<
+    ParsedPage,
+    | 'title'
+    | 'metaDescription'
+    | 'canonical'
+    | 'ogTitle'
+    | 'ogDescription'
+    | 'ogImage'
+  > | null>(null);
 
   async function handleCheck(url: string) {
     setLoading(true);
@@ -25,6 +34,14 @@ function App() {
       setSections(results);
       setCheckedUrl(url);
       setPageTitle(page.title);
+      setPageInfo({
+        title: page.title,
+        metaDescription: page.metaDescription,
+        canonical: page.canonical,
+        ogTitle: page.ogTitle,
+        ogDescription: page.ogDescription,
+        ogImage: page.ogImage,
+      });
     } catch (err) {
       setError(
         err instanceof Error
@@ -52,6 +69,7 @@ function App() {
           sections={sections}
           url={checkedUrl}
           pageTitle={pageTitle}
+          pageInfo={pageInfo}
         />
       )}
 
