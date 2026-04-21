@@ -5,6 +5,7 @@
   "type": "module",
   "description": "Free website content checker — checks SEO, structure, and AI search readiness",
   "author": "David Tiong",
+  "license": "MIT",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",
