@@ -84,14 +84,11 @@ export function UpgradeCallout({ sections }: UpgradeCalloutProps) {
         </p>
       )}
 
-      <a
-        href="#"
-        className="mt-5 inline-block rounded-lg bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-stone-800"
-      >
-        Get Content Checker Pro &mdash; $29
-      </a>
+      <div className="mt-5 inline-block rounded-lg bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-sm">
+        Content Checker Pro — Coming Soon
+      </div>
       <p className="mt-2 text-xs text-stone-400">
-        One-time purchase. No subscription. Runs on your machine.
+        One-time purchase. No subscription. Bring your own AI key.
       </p>
     </div>
   );

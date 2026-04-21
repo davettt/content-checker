@@ -83,6 +83,18 @@ function App() {
           <div className="mt-12">
             <UpgradeCallout />
           </div>
+
+          <footer className="mt-8 pb-8 text-center text-xs text-stone-400">
+            &copy; {new Date().getFullYear()}{' '}
+            <a
+              href="https://www.davidtiong.com"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="underline hover:text-stone-500"
+            >
+              David Tiong
+            </a>
+          </footer>
         </div>
       )}
     </div>

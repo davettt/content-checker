@@ -38,13 +38,22 @@ export function ResultsPanel({ sections, url, pageTitle }: ResultsPanelProps) {
         <UpgradeCallout sections={sections} />
       </div>
 
-      <footer className="mt-8 pb-8 text-center text-xs text-stone-400">
-        Content Checker analyses publicly visible HTML. Results are based on
-        rule-based checks, not AI. For AI-powered analysis, try{' '}
-        <a href="#" className="underline">
-          Content Checker Pro
-        </a>
-        .
+      <footer className="mt-8 pb-8 text-center text-sm text-stone-500">
+        <p>
+          Content Checker analyses publicly visible HTML. Results are based on
+          rule-based checks, not AI.
+        </p>
+        <p className="mt-2 text-xs text-stone-400">
+          &copy; {new Date().getFullYear()}{' '}
+          <a
+            href="https://www.davidtiong.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="underline hover:text-stone-500"
+          >
+            David Tiong
+          </a>
+        </p>
       </footer>
     </div>
   );
