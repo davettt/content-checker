@@ -62,7 +62,8 @@ function parseHtml(html: string, url: string): ParsedPage {
   const headings: ParsedPage['headings'] = [];
   doc.querySelectorAll('h1, h2, h3, h4, h5, h6').forEach((el) => {
     // Skip headings inside nav/footer (those are structural, not content)
-    if (el.closest('nav, footer, header')) return;
+    // Note: header is intentionally excluded — many sites (Framer, WordPress, etc.) put the page H1 inside <header>
+    if (el.closest('nav, footer')) return;
 
     // Skip visually hidden headings
     const cls = el.getAttribute('class') ?? '';
