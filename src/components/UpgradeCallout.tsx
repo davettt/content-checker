@@ -11,9 +11,6 @@ function getContextualBullets(sections: SectionResult[]): string[] {
   const faqCheck = aiSection?.checks.find(
     (c) => c.label === 'FAQ-style content',
   );
-  const schemaCheck = aiSection?.checks.find(
-    (c) => c.label === 'Schema markup',
-  );
 
   const structureSection = sections.find((s) => s.name === 'Content Structure');
   const contentChecks = structureSection?.checks ?? [];
@@ -21,37 +18,20 @@ function getContextualBullets(sections: SectionResult[]): string[] {
     (c) => c.status === 'needs-work' || c.status === 'missing',
   );
 
-  const imageSection = sections.find((s) => s.name === 'Images');
-  const altCheck = imageSection?.checks.find(
-    (c) => c.label === 'Alt text coverage',
-  );
-
   if (faqCheck?.status !== 'good') {
     bullets.push(
-      'Auto-generate FAQ sections that AI search engines love to cite',
-    );
-  }
-
-  if (schemaCheck?.status !== 'good') {
-    bullets.push(
-      'Get ready-to-use schema markup code for your specific page type',
+      'AI identifies missing questions your audience is searching for',
     );
   }
 
   if (hasStructureIssues) {
     bullets.push(
-      'AI-powered content rewrite that improves your heading structure and clarity',
-    );
-  }
-
-  if (altCheck?.status !== 'good') {
-    bullets.push(
-      'Smart alt text suggestions based on your actual image context',
+      'Detailed AI analysis with specific, actionable recommendations',
     );
   }
 
   bullets.push('Score your pages against your top competitors');
-  bullets.push('Check up to 10 pages at once across your whole site');
+  bullets.push('Manage multi-page projects and export branded PDF reports');
 
   return bullets.slice(0, 4);
 }
@@ -79,16 +59,24 @@ export function UpgradeCallout({ sections }: UpgradeCalloutProps) {
         </ul>
       ) : (
         <p className="mx-auto mt-2 max-w-md text-sm text-stone-600">
-          Content Checker Pro uses AI to rewrite your content, generate FAQs,
-          suggest schema markup, and score your pages against competitors.
+          Content Checker Pro uses AI to analyse your content, identify missing
+          questions, and score your pages against competitors — with branded PDF
+          reports.
         </p>
       )}
 
-      <div className="mt-5 inline-block rounded-lg bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-sm">
-        Content Checker Pro — Coming Soon
-      </div>
+      <a
+        href="https://tiongcreative.com.au/content-checker-pro/"
+        target="_blank"
+        rel="noopener noreferrer"
+        className="mt-5 inline-block rounded-lg bg-stone-900 px-6 py-3 text-sm font-medium text-white shadow-sm transition-colors hover:bg-stone-800"
+      >
+        Content Checker Pro —{' '}
+        <span className="line-through opacity-60">$99</span> $49 AUD
+      </a>
       <p className="mt-2 text-xs text-stone-400">
-        One-time purchase. No subscription. Bring your own AI key.
+        Half price launch offer — ends July 2026. One-time purchase, no
+        subscription.
       </p>
     </div>
   );
